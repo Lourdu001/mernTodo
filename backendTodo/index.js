@@ -5,7 +5,7 @@ const port = process.env.PORT;
 const cors =require('cors');
 const SingleText = require('./models/singleTextModel');
 const mongoose = require('mongoose');
-const DB = process.env.DB;
+const MONGODB_URI = process.env.MONGODB_URI;
 const AddNewTask = require('./models/AddNewTask');
 
 app.use(cors());
@@ -18,7 +18,7 @@ res.send("i am testing and i am working");
 });
 
 
-mongoose.connect(DB).then(()=>{
+mongoose.connect(MONGODB_URI).then(()=>{
     console.log("connected");
     
 }).catch((err)=>{
