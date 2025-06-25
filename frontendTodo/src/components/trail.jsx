@@ -5,6 +5,7 @@ import Header from './Header';
 
 
 const Trail = () => {
+  const BASE_URL = 'https://merntodobackendserver.onrender.com';
   const [addtask, setaddtask] = useState(false);
   const [all, setall] = useState(false);
 const [completedevent, setcompletedevent] = useState(false);
@@ -20,7 +21,7 @@ const [completedevent, setcompletedevent] = useState(false);
     const [describe, setdescribe] = useState("");
 const [Disp, setDisp] = useState("");
 const restore = async() =>{
-await  axios.get('http://localhost:5000/all').then(
+await  axios.get(`${BASE_URL}/all`).then(
     res=>{setreceiveData(res.data);
       filteredcomplete();
       console.log(res.data);
@@ -44,7 +45,7 @@ const object = {
   describtion:describe,
   iscompleted:false,
 }
-await axios.post('http://localhost:5000/newtask',object).then(res=>{
+await axios.post(`${BASE_URL}/newtask`,object).then(res=>{
   restore();
   settitle('');
   setdescribe('');
@@ -64,7 +65,7 @@ setDisp("Enter title");
 }
 
 const removeitem = async(key) =>{
-await axios.delete('http://localhost:5000/delete/'+key).then(res=>{
+await axios.delete(`${BASE_URL}/delete/${key}`).then(res=>{
   restore();
   setdisdelete(res.data)});
 
@@ -74,7 +75,7 @@ const updateitem = async() =>{
     title:uptitle,
     describtion:updescribe,
    }
-  await axios.put('http://localhost:5000/update/'+upkey,changeitem).then(res=>{
+  await axios.put(`${BASE_URL}/update/${upkey}`,changeitem).then(res=>{
     restore();
    setup(false);
    setall(true);
@@ -85,7 +86,7 @@ const done = async(key) =>{
   const changedone = {
     iscompleted:true,
   }
-  await axios.put('http://localhost:5000/update/'+key,changedone).then(res=>{
+  await axios.put(`${BASE_URL}/update/${key}`,changedone).then(res=>{
         restore();
         filteredcomplete();
 
@@ -96,7 +97,7 @@ const undone = async(key) =>{
   const changedone = {
     iscompleted:false,
   }
-  await axios.put('http://localhost:5000/update/'+key,changedone).then(res=>{
+  await axios.put(`${BASE_URL}/update/`+key,changedone).then(res=>{
         restore();
         filteredcomplete();
 
