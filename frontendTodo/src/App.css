@@ -131,3 +131,52 @@ text-align: center;
     padding-top: 3px;
     padding-bottom: 3px;
 }
+.logincontainer{
+    display: flex;
+    justify-content: center;
+    padding-top: 10%;
+    background-color: aqua;
+    width: 100%;
+    height: 100vh;
+}
+.boxcontaineruser{
+    border-radius: 13%;
+    border-color: black;
+padding: 50px;
+padding-bottom: 10px;
+padding-top: 30px;
+justify-content: space-between;
+display: flex;
+flex-direction: column;
+background-color: aquamarine;
+}
+
+.useritem{
+    margin: 5px;
+}
+.buttonlogin{
+    align-self: center;
+    border-radius: 5px;
+    border: none;
+    width: 80px;
+    font-weight: bold;
+    padding: 5px;
+    margin-top: 10px;
+    color: rgb(55, 55, 255);
+    
+}
+.buttonlogin:hover{
+    color: white;
+    background-color: aqua;
+}
+.pointerbutton{
+    cursor: pointer;
+    color: blue;
+}
+.newadjustflex{
+    display: flex;
+    flex-direction: row;
+}
+.inputnone{
+    border: none;
+}
